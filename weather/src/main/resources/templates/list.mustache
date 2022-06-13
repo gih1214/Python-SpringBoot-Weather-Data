@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>실시간 대기환경 현황</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        div {
+            padding: 0px 90px 0px 90px;
+        }
+
+        td,
+        th,
+        h2 {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <br />
+        <h2>서울시 권역별 실시간 대기환경 현황</h2>
+        <hr />
+        <p>대기 환경지수, 미세먼지, 오존, 이산화질소, 일산화탄소, 아황산가스 등의 권역별 실시간 대기환경정보를 제공합니다.</p>
+        <table class="table">
+            <thead>
+                <tr class="table-danger">
+                    <th>번호</th>
+                    <th>측정일시</th>
+                    <th>권역명</th>
+                    <th>측정소명</th>
+                    <th>미세먼지</th>
+                    <th>초미세먼지농도</th>
+                    <th>오존</th>
+                    <th>이산화질소농도</th>
+                    <th>일산화탄소농도</th>
+                    <th>아황산가스농도</th>
+                    <th>통합대기환경등급</th>
+                    <th>통합대기환경지수</th>
+                    <th>지수결정물질</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#weather}}
+                <tr>
+                    <td>{{ID}}</td>
+                    <td>{{MSRDT}}</td>
+                    <td>{{MSRRGN_NM}}</td>
+                    <td>{{MSRSTE_NM}}</td>
+                    <td>{{PM10}}</td>
+                    <td>{{PM25}}</td>
+                    <td>{{O3}}</td>
+                    <td>{{NO2}}</td>
+                    <td>{{CO}}</td>
+                    <td>{{SO2}}</td>
+                    <td>{{IDEX_NM}}</td>
+                    <td>{{IDEX_MVL}}</td>
+                    <td>{{ARPLT_MAIN}}</td>
+                </tr>
+                {{/weather}}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
